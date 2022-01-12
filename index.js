@@ -62,10 +62,17 @@ Confirm that an array is exactly 31 flavors. Your function should accept:
 
 For Example: is31Flavors(originalFlavors) will return true if your code is working properly
 */
+//one parameter array
+//check to see if length of array is equal to 31
+//if it is we return true else we return false
 
 
-function is31Flavors(/*your code here*/){
- /*your code here*/
+function is31Flavors(array){
+ if(array.length === 31){
+   return true;
+ }else {
+   return false;
+ }
 }
 
 /* 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 3: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 
@@ -80,9 +87,12 @@ Use the addFlavor function below to do the following:
   For example: addFlavor(originalFlavors, "Rainbow Sherbert") should return the array ["Rainbow Sherbert", "Banana Nut Fudge",..."Vanilla Burnt Almond"]
 */
 
+//2 params array,flavor
+function addFlavor(array,flavor){
+ array.unshift(flavor);
+ return array;
 
-function addFlavor(/*your code here*/){
- /*your code here*/
+ //return the array
 }
 
 
@@ -96,9 +106,10 @@ Use the removeLastFlavor function below to do the following:
 
   For example: running removeLastFlavor(originalFlavors) would return ["Rainbow Sherbert", "Banana Nut Fudge",..."Vanilla"]
 */
-
-function removeLastFlavor(/*your code here*/){
- /*your code here*/
+//1 parameter array
+function removeLastFlavor(array){
+ array.pop();
+ return array;
 }
 
 
@@ -113,9 +124,10 @@ Use the getFlavorByIndex function below to do the following:
 
   For example: running getFlavorByIndex(originalFlavors, 2) would return "Black Walnut", assuming Rainbow Sherbert has been added successfully
 */
+//2 parameters array,index
+function getFlavorByIndex(array,index){
+ return array[index];
 
-function getFlavorByIndex(/*your code here*/){
-  /*your code here*/
 }
 
 
@@ -133,11 +145,19 @@ Use the removeFlavorByName function below to do the following:
 
   HINT: You can use .splice() for this
 */
-
-function removeFlavorByName(/*your code here*/){
-  /*your code here*/
+//2 parameters array,index
+function removeFlavorByName(array,flavor){
+  for(let i=0;i<array.length;i++){
+    if( array[i]===flavor){
+      array.splice(i,1);
+    }
+  }
+  return array;
+  //loop through array 
+  //write a conditional that checks to see if the index matches the given flavor
+  //if it does remove it
+  //outside of loop return array
 }
-
 
 
 /*🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀 Task 7: 🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀
@@ -159,9 +179,18 @@ Use the filterByWord function below to do the following:
 
   DO NOT USE ADVANCED ARRAY METHODS (i.e. .filter) to solve this problem. 
 */
-
-function filterByWord(/*your code here*/){
-  /*your code here*/
+// 2 parameters array,string
+function filterByWord(array,flavor){
+  const filteredArray = [];
+  for (let i =0;i<array.length;i++){
+    if (array[i].includes(flavor)){
+      filteredArray.push(array[i]);
+    }
+  }
+  return filteredArray;
+  //loop through original array and check each items
+  //if item includes the string i want to push it to filteredArray
+  //outside of for loop return filteredArray
 }
 
 
